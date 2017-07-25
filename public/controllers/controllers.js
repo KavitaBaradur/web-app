@@ -59,18 +59,15 @@ myapp.controller("LoginController", function ($scope, $location, $http) {
     };
 });
 
-myapp.controller("HomeController", function ($scope, $location) {
+myapp.controller("HomeController", function ($scope, $http) {
     $http({
-        method: 'GET',
-        url: '/admin'
-    }).then(function (response) {
-        console.log(">>>>>>>>>>>>>", response);
-        if (response.data == "true") {
-            response.json();
-        }
-    }, function myError(response) {
-        console.log("******************")
-        $scope.myWelcome = response.statusText;
+        method : 'GET',
+        url    : '/api/v1/user',
+        params : {}
+    }).then(function mySuccess(response){
+        $scope.users=response.data;
+    },function myError(response){
+        $scope.users=response.statusText;
     });
 
 });

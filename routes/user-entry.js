@@ -34,6 +34,7 @@ router.post('/',function (request,response,next) {
 });
 
 router.get('/', function(request, response, next){
+    console.log("Got request for user data");
     userModal.getAllUsers(function(error,rows){
         if(error)
         {
@@ -41,8 +42,9 @@ router.get('/', function(request, response, next){
         }
         else
         {
-            var res = {"UserID": response.UserID,
+           var res = {"UserID": response.UserID,
                 "Password": response.Password};
+           console.log(rows);
             response.json(rows);
         }
     });

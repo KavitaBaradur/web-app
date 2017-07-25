@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myapp">
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -30,7 +30,7 @@
     <form class="form-inline" style="padding-left: 25%">
         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon">ID</div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="UserID">
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="UserID" ng-model="searchText.userID">
         </div>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="padding-left: 5%">
             <button type="submit" class="btn btn-primary">Add User</button>
@@ -48,15 +48,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="userID in users">
-            <td>{{users.UserID}}</td>
-            <td>{{users.Password}}</td>
+        <tr ng-repeat="user in users | filter: searchText track by $index">
+            <td>{{user.userID}}</td>
+            <td>{{user.password}}</td>
         </tr>
         </tbody>
     </table>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="controllers/controllers.js"></script>
 </body>
 </html>
 
