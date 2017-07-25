@@ -1,0 +1,51 @@
+<div ng-controller='LoginController'>
+    <nav class="navbar navbar-inverse" role="navigation" style="padding-left:100px;">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="panel-body">
+    <div class="tab-content">
+      <div id="login" class="tab-pane fade in active register">
+        <div class="container" >
+          <div class="row">
+            <h2 class="text-center" style="color: #5cb85c;"> <strong> Login </strong></h2><hr />
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <input type="text" placeholder="User Name" name="uname" class="form-control" ng-model="input_value.user_name">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-4 col-md-offset-4">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-lock"></span>
+                    </div>
+                    <input type="password" placeholder="Password" name="password" class="form-control" ng-model="input_value.password">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-5">
+                <button type="submit" class="btn btn-success btn-block btn-lg" ng-click="validate()"> Login </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
