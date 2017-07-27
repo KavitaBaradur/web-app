@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<div>
+<div class="container" ng-controller='ActivityController'>
     <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
         <ul class="nav navbar-nav navbar-left">
             <li ><a href="admin_page.html">User</a></li>
@@ -24,10 +24,35 @@
             <li><a href="">Logout</a></li>
         </ul>
     </nav>
-</div>
 <br/>
 
+
+    <div>Search : <input type="text" placeholder="patient id" size="20" maxlength="4" ng-model="searchText.patient_id"/>
+        <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</div>
+    <br/><br/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><a href="" ng-click="orderByField='patient_Id'">patient_Id</th>
+            <th><a href="" ng-click="orderByField='duration'">duration</th>
+            <th><a href="" ng-click="orderByField='recorded time'">recorded time</th>
+            <th><a href="" ng-click="orderByField='creation date'">creation date</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="activity in activityList | filter:searchText track by $index">
+            <td>{{activity.patient_id}}</td>
+            <td>{{activity.duration+" minutes"}}</td>
+            <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>
+            <td>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="controllers/controllers.js"></script>
 </body>
 </html>
 

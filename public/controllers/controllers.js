@@ -33,6 +33,10 @@ myapp.config(['$routeProvider', '$locationProvider',
         $routeProvider.when('/', {
             templateUrl: 'auth.html',
             controller: 'LoginController'
+        })
+        $routeProvider.when('/activity', {
+            templateUrl: 'activity_view.html',
+            controller: 'ActivityController'
         }).otherwise({
             redirectTo: 'index.html'
         });
@@ -60,15 +64,34 @@ myapp.controller("LoginController", function ($scope, $location, $http) {
 });
 
 myapp.controller("HomeController", function ($scope, $http) {
-    $http({
-        method : 'GET',
-        url    : '/api/v1/user',
-        params : {}
-    }).then(function mySuccess(response){
-        $scope.users=response.data;
-    },function myError(response){
-        $scope.users=response.statusText;
-    });
+        $http({
+            method: 'GET',
+            url: '/api/v1/user',
+            params: {}
+        }).then(function mySuccess(response) {
+            $scope.users = response.data;
+          //  $location.path("/activity");
+        }, function myError(response) {
+            $scope.users = response.statusText;
+        });
+
+        $scope.viewActivity = function (isValid) {
+            if (isValid) {
+                $location.path("/activity");
+            }
+        }
+});
+
+myapp.controller("ActivityController", function ($scope, $http) {
+       $http({
+           method: 'GET',
+           url: 'http://tjrapp.wpi.edu:5353/api/v1/activity-entries',
+           params: {}
+       }).then(function mySuccess(response) {
+           $scope.activityList = response.data;
+       }, function myError(response) {
+           $scope.activityList = response.statusText;
+       });
 
 });
 
