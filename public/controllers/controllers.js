@@ -75,11 +75,6 @@ myapp.controller("HomeController", function ($scope, $http) {
             $scope.users = response.statusText;
         });
 
-        $scope.viewActivity = function (isValid) {
-            if (isValid) {
-                $location.path("/activity");
-            }
-        }
 });
 
 myapp.controller("ActivityController", function ($scope, $http) {

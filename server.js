@@ -9,10 +9,11 @@ app.use(bodyParser.json());
 
 /*Loads routes defined in the below modules.*/
 var painService = require('./routes/pain-entry');
-//var authService = require('./routes/authentication');
 var userService = require('./routes/user-entry');
 var activityService = require('./routes/activity-entry');
 var adminService = require('./routes/admin-entry');
+var authService = require('./routes/addUser-entry');
+var addUserService = require('./routes/user-details');
 var api = '/api/v1';
 var db = require('./modals/database');
 /*Configuring the app to use bodyParser, which lets us get the data from a POST*/
@@ -28,7 +29,8 @@ app.use(function(req, res, next) {
 /*Services, defines the endpoints PATH's to access the RESTful resources*/
 router.use('/pain-entries', painService);
 router.use('/user', userService);
-//router.use('/patientCredentials', patientCredentialService);
+router.use('/authentication', authService);
+router.use('/userDetails', addUserService);
 router.use('/activity-entries',activityService);
 router.use('/admin', adminService);
 app.use(api, router);
