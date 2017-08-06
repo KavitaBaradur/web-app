@@ -15,10 +15,10 @@
 <div>
     <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
         <ul class="nav navbar-nav navbar-left">
-            <li ><a href="admin_page.html">User</a></li>
-            <li class="active"><a href="/">PainEntry<span class="sr-only">(current)</span></a></li>
+            <li><a href="admin_page.html">User</a></li>
+            <li><a href="pain_view.html">PainEntry</a></li>
             <li><a href="activity_view.html">ActivityEntry</a></li>
-            <li><a href="assessment_view.html">AssessmentEntry</a></li>
+            <li class="active"><a href="/">AssessmentEntry<span class="sr-only">(current)</span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="">Welcome</a></li>
@@ -27,36 +27,12 @@
     </nav>
 </div>
 <br/>
-<div class="container" ng-controller="painController">
+<div class="container" ng-controller='assessmentController'>
     <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="searchText.subjectId">
 
         <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
     </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>SubjectID</th>
-            <th>PainLevel</th>
-            <th>Note</th>
-            <th>Joint</th>
-            <th>TimeOfDay</th>
-            <th>Time</th>
-            <th>Creation Date</th>
-        </tr>
-        </thead>
 
-        <thead>
-        <tr ng-repeat="pain in painList | filter:searchText track by $index">
-            <th>{{pain.subjectId}}</th>
-            <th>{{pain.painLevel}}</th>
-            <th>{{pain.note}}</th>
-            <th>{{pain.joint}}</th>
-            <th>{{pain.timeOfDay.slice(0,-5).replace("T"," ")}}</th>
-            <th>{{pain.time.slice(0,-5).replace("T"," ")}}</th>
-            <th>{{pain.creation_date.slice(0,-5).replace("T"," ")}}</th>
-        </tr>
-        </thead>
-    </table>
 </div>
 
 

@@ -18,6 +18,7 @@
             <li ><a href="admin_page.html">User</a></li>
             <li><a href="pain_view.html">PainEntry</a></li>
             <li class="active"><a href="/">ActivityEntry<span class="sr-only">(current)</span></a></li>
+            <li><a href="assessment_view.html">AssessmentEntry</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="">Welcome</a></li>
@@ -41,14 +42,15 @@
         </tr>
         </thead>
 
-        <tbody>
+        <thead>
         <tr ng-repeat="activity in activityList | filter:searchText track by $index">
-            <td>{{activity.patient_id}}</td>
-            <td>{{activity.duration+" minutes"}}</td>
-            <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>
-            <td>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</td>
+            <th>{{activity.patient_id}}</th>
+            <th>{{activity.duration+" minutes"}}</th>
+            <th>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</th>
+            <th>{{activity.act_id}}</th>
+            <th>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</th>
         </tr>
-        </tbody>
+        </thead>
     </table>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>

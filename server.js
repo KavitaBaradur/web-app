@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 var painService = require('./routes/pain-entry');
 var userService = require('./routes/user-entry');
 var activityService = require('./routes/activity-entry');
+var assesmentService = require('./routes/assessment-entry');
 var adminService = require('./routes/admin-entry');
 var authService = require('./routes/addUser-entry');
 var addUserService = require('./routes/user-details');
@@ -32,6 +33,7 @@ router.use('/user', userService);
 router.use('/authentication', authService);
 router.use('/userDetails', addUserService);
 router.use('/activity-entries',activityService);
+router.use('/assessment-entries',assesmentService);
 router.use('/admin', adminService);
 app.use(api, router);
 
