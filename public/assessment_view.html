@@ -1,32 +1,7 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <title>Total Joint Replacement Admin Home</title>
-
-</head>
 <body>
-<div>
-    <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
-        <ul class="nav navbar-nav navbar-left">
-            <li><a href="admin_page.html">User</a></li>
-            <li><a href="pain_view.html">PainEntry</a></li>
-            <li><a href="activity_view.html">ActivityEntry</a></li>
-            <li class="active"><a href="/">AssessmentEntry<span class="sr-only">(current)</span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Welcome</a></li>
-            <li><a href="">Logout</a></li>
-        </ul>
-    </nav>
-</div>
-<br/>
 <div class="container" ng-controller='assessmentController'>
     <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="searchText.subjectId">
 
@@ -35,9 +10,6 @@
 
 </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="controllers/controllers.js"></script>
 </body>
 </html>
 

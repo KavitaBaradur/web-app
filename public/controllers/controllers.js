@@ -29,13 +29,17 @@ myapp.config(['$routeProvider', '$locationProvider',
             templateUrl: 'admin_page.html',
             controller: 'HomeController'
         })
+        $routeProvider.when('/UserEntry', {
+            templateUrl: 'admin_page.html',
+            controller: 'HomeController'
+        })
         $routeProvider.when('/', {
             templateUrl: 'auth.html',
             controller: 'LoginController'
         })
-        $routeProvider.when('/activity', {
+        $routeProvider.when('/ActivityEntry', {
             templateUrl: 'activity_view.html',
-            controller: 'ActivityController'
+            controller: 'activityController'
         })
         $routeProvider.when('/PainEntry',{
                 templateUrl: 'pain_view.html',
@@ -47,7 +51,7 @@ myapp.config(['$routeProvider', '$locationProvider',
         }).otherwise({
             redirectTo: 'index.html'
         });
-        //$locationProvider.html5Mode(true); //Remove the '#' from URL.
+        $locationProvider.html5Mode(true); //Remove the '#' from URL.
     }
 ]);
 
@@ -90,6 +94,8 @@ myapp.controller("painController",function ($scope,$http) {
         url    : "http://tjrapp.wpi.edu:5353/api/v1/pain-entries",
         params : {}
     }).then(function mySuccess(response){
+        console.log(response.data);
+        console.log("ddd");
         $scope.painList=response.data;
     },function myError(response){
         $scope.painList=response.statusText;

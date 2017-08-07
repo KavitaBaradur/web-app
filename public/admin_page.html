@@ -1,31 +1,7 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <title>Total Joint Replacement Admin Home</title>
-
-</head>
 <body>
-<div ng-controller='HomeController'>
-    <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
-        <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="/">User<span class="sr-only">(current)</span></a></li>
-            <li><a href="pain_view.html">PainEntry</a></li>
-            <li><a ng-href="activity_view.html" ng-click="viewActivity()">ActivityEntry</a></li>
-            <li><a href="assessment_view.html">AssessmentEntry</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Welcome</a></li>
-            <li><a href="">Logout</a></li>
-        </ul>
-    </nav>
-</div>
+<div class="container" ng-controller='HomeController'>
 <br/>
 <div class="jumbotron" >
     <form class="form-inline" style="padding-left: 25%">
@@ -34,7 +10,7 @@
             <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="UserID" ng-model="searchText.userID">
         </div>
         <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="padding-left: 5%">
-            <button  class="btn btn-primary" ng-click="addUser()">Add User</button>
+            <button  id="addUserBtn" class="btn btn-primary">Add User</button>
         </div>
     </form>
 
@@ -56,9 +32,8 @@
         </tbody>
     </table>
 </div>
+</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="controllers/controllers.js"></script>
 </body>
 </html>
 

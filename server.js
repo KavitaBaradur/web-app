@@ -46,6 +46,22 @@ app.get('/admin', function (req, res, next) {
     res.sendFile( __dirname + '/public/admin_page.html');
 });
 
+app.get('/UserEntry', function (req, res, next) {
+    res.sendFile( __dirname + '/public/admin_page.html');
+});
+
+app.get('/PainEntry', function (req, res, next) {
+    res.sendFile( __dirname + '/public/pain_view.html');
+});
+
+app.get('/ActivityEntry', function (req, res, next) {
+    res.sendFile( __dirname + '/public/activity_view.html');
+});
+
+app.get('/AssessmentEntry', function (req, res, next) {
+    res.sendFile( __dirname + '/public/assessment_view.html');
+});
+
 
 //app.use(express.static(__dirname + "/public"));
 
