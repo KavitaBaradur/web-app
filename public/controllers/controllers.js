@@ -4,23 +4,24 @@
 
 var myapp = angular.module("myapp", ['ngRoute']);
 
-myapp.controller('AppCtrl', ['$scope', '$http',
-    function ($scope, $http) {
+        myapp.controller('AppCtrl', ['$scope', '$http', '$rootScope',
+    function ($scope, $http, $rootScope) {
     console.log("Hello from Controller");
-        $scope.validate = function () {
-            console.log("Login clicked");
-            $http({
-                method: 'POST',
-                url: '/login',
-                data: $scope.input_value
-            }).then(function (response){
-                console.log(">>>>>>>>>>>>>", response);
-            }, function myError(response) {
-                console.log("******************")
-                $scope.myWelcome = response.statusText;
-            });
-
-        };
+//        $scope.validate = function () {
+//            console.log("Login clicked");
+//            $http({
+//                method: 'POST',
+//                url: '/login',
+//                data: $scope.input_value
+//            }).then(function (response){
+//                console.log(">>>>>>>>>>>>>", response);
+//            }, function myError(response) {
+//                console.log("******************")
+//                $scope.myWelcome = response.statusText;
+//            });
+//
+//        };
+        $rootScope.loginFlag = false;
 
     }]);
 myapp.config(['$routeProvider', '$locationProvider',
@@ -55,7 +56,8 @@ myapp.config(['$routeProvider', '$locationProvider',
     }
 ]);
 
-myapp.controller("LoginController", function ($scope, $location, $http) {
+myapp.controller("LoginController", function ($scope, $rootScope, $location, $http) {
+    $rootScope.loginFlag = false;
     $scope.validate = function () {
         console.log("Login clicked");
         $http({
@@ -64,8 +66,10 @@ myapp.controller("LoginController", function ($scope, $location, $http) {
             data: $scope.input_value
         }).then(function (response) {
             console.log(">>>>>>>>>>>>>", response);
-            if (response.data == "true")
+            if (response.data == "true") {
                 $location.path("/admin");
+                $rootScope.loginFlag = true;
+            }
         }, function myError(response) {
             console.log("******************")
             $scope.myWelcome = response.statusText;

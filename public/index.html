@@ -14,15 +14,15 @@
   <body>
 
   <div>
-    <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
-      <ul class="nav navbar-nav navbar-left">
+      <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px; padding-right: 100px">
+      <ul class="nav navbar-nav navbar-left" ng-show="loginFlag">
         <li><a href="UserEntry">UserEntry</a></li>
         <li><a href="PainEntry">PainEntry</a></li>
         <li><a href="ActivityEntry">ActivityEntry</a></li>
         <li><a href="AssessmentEntry">AssessmentEntry</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout">Logout</a></li>
+      <ul class="nav navbar-nav navbar-right" ng-show="loginFlag">
+        <li><a href="/">Logout</a></li>
       </ul>
     </nav>
   </div>
