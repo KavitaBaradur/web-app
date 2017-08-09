@@ -26,10 +26,6 @@ var myapp = angular.module("myapp", ['ngRoute']);
     }]);
 myapp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/admin', {
-            templateUrl: 'admin_page.html',
-            controller: 'HomeController'
-        })
         $routeProvider.when('/UserEntry', {
             templateUrl: 'admin_page.html',
             controller: 'HomeController'
@@ -85,7 +81,6 @@ myapp.controller("HomeController", function ($scope, $http) {
             params: {}
         }).then(function mySuccess(response) {
             $scope.users = response.data;
-          //  $location.path("/activity");
         }, function myError(response) {
             $scope.users = response.statusText;
         });
