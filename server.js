@@ -42,10 +42,6 @@ app.get('/', function (req, res, next) {
     res.sendFile( __dirname + '/public/index.html');
 });
 
-app.get('/admin', function (req, res, next) {
-    res.sendFile( __dirname + '/public/admin_page.html');
-});
-
 app.get('/UserEntry', function (req, res, next) {
     res.sendFile( __dirname + '/public/admin_page.html');
 });

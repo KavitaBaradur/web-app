@@ -25,10 +25,6 @@ myapp.controller('AppCtrl', ['$scope', '$http',
     }]);
 myapp.config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/admin', {
-            templateUrl: 'admin_page.html',
-            controller: 'HomeController'
-        })
         $routeProvider.when('/UserEntry', {
             templateUrl: 'admin_page.html',
             controller: 'HomeController'
@@ -65,7 +61,7 @@ myapp.controller("LoginController", function ($scope, $location, $http) {
         }).then(function (response) {
             console.log(">>>>>>>>>>>>>", response);
             if (response.data == "true")
-                $location.path("/admin");
+                $location.path("/UserEntry");
         }, function myError(response) {
             console.log("******************")
             $scope.myWelcome = response.statusText;
@@ -81,7 +77,6 @@ myapp.controller("HomeController", function ($scope, $http) {
             params: {}
         }).then(function mySuccess(response) {
             $scope.users = response.data;
-          //  $location.path("/activity");
         }, function myError(response) {
             $scope.users = response.statusText;
         });
