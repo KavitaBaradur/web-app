@@ -1,6 +1,6 @@
 
     <div class="container" ng-controller='assessmentController'>
-        <div class="jumbotron">
+       <div class="well well-lg">
         <table class="table">
             <thead>
             <tr>
@@ -8,14 +8,12 @@
                 <th>Download Sample File which indicates the data pattern</th>
             </tr>
             </thead>
-            <thead>
             <tr>
-                <th><button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button></th>
-                <th>
+                <td><button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button></td>
+                <td>
                     <a class="btn btn-primary" href="./PRODataDictionaryv2.xlsx" target="_self">Download</a>
-                </th>
+                </td>
             </tr>
-            </thead>
         </table>
         </div>
 

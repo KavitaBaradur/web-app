@@ -1,11 +1,15 @@
     <div class="container" ng-controller="painController">
         <div class="jumbotron">
-        <div>Search : <input type="text" placeholder="User id" size="20" maxlength="4" ng-model="userInput.subjectId">
-            <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
-            <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
+            <div>
+                <form class="form-inline">
+                <label>Search:</label>
+                <input class="form-control" type="text" placeholder="User id" size="20" maxlength="4" ng-model="userInput.subjectId">
+                <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
+                <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
+                </form>
+            </div>
         </div>
-        </div>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>UserID</th>
