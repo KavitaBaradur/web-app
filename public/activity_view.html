@@ -1,31 +1,31 @@
 
-<div class="container" ng-controller='activityController'>
+    <div class="container" ng-controller='activityController'>
 
+        <div class="jumbotron">
+        <div>Search : <input type="text" placeholder="User id" size="20" maxlength="4" ng-model="userInput.patient_id"/>
+            <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
+            <button ng-click="createCsv()" class="btn btn-primary">Export to CSV </button>
+             </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>UserID</th>
+                <th>Duration</th>
+                <th>Recorded Time</th>
+                <th>ActivityID</th>
+                <th>Creation Date</th>
+            </tr>
+            </thead>
 
-    <div>Search : <input type="text" placeholder="user id" size="20" maxlength="4" ng-model="userInput.patient_id"/>
-        <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
-        <button ng-click="createCsv()" class="btn btn-primary">Export to CSV </button>
-         </div>
-    <br/><br/>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>UserID</th>
-            <th>Duration</th>
-            <th>Recorded Time</th>
-            <th>ActivityID</th>
-            <th>Creation Date</th>
-        </tr>
-        </thead>
+            <tr ng-repeat="activity in activityList | filter:search track by $index">
+                <td>{{activity.patient_id}}</td>
+                <td>{{activity.duration+" minutes"}}</td>
+                <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>
+                <td>{{activity.act_id}}</td>
+                <td>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</td>
+            </tr>
 
-        <tr ng-repeat="activity in activityList | filter:search track by $index">
-            <td>{{activity.patient_id}}</td>
-            <td>{{activity.duration+" minutes"}}</td>
-            <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>
-            <td>{{activity.act_id}}</td>
-            <td>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</td>
-        </tr>
-
-    </table>
-</div>
+        </table>
+    </div>
 

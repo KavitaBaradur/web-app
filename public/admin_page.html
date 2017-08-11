@@ -1,54 +1,57 @@
 
-<div class="container" ng-controller="userController">
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+    <div class="container" ng-controller="userController">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New User</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="control-label col-sm-2">User ID:</label>
-                            <div class="col-sm-10">
-                                <input type="number" min="1" maxlength="4"  class="form-control" id="user" placeholder="Enter User ID" ng-model="user_name" name="user_name">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">New User</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">User ID:</label>
+                                <div class="col-sm-10">
+                                    <input type="number" min="1" maxlength="4"  class="form-control" id="user" placeholder="Enter User ID" ng-model="user_name" name="user_name">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default" ng-click="createUser()" data-dismiss="modal">Submit</button>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default" ng-click="createUser()" data-dismiss="modal">Submit</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+
             </div>
-
         </div>
+        <div class="jumbotron">
+
+        <div>Search : <input type="text" placeholder="user id" size="20" maxlength="4" ng-model="searchText.user_name">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add User</button>
+        </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+
+            <tr ng-repeat="user in userList | filter:searchText track by $index">
+                <td>{{user.user_name}}</td>
+                <td>{{user.password}}</td>
+            </tr>
+        </table>
+
     </div>
-
-    <div>Search : <input type="text" placeholder="user id" size="20" maxlength="4" ng-model="searchText.user_name">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add User</button>
-    </div>
-    <br/><br/>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>User ID</th>
-            <th>Password</th>
-        </tr>
-        </thead>
-
-        <tr ng-repeat="user in userList | filter:searchText track by $index">
-            <td>{{user.user_name}}</td>
-            <td>{{user.password}}</td>
-        </tr>
-    </table>
-
-</div>

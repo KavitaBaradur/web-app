@@ -1,34 +1,35 @@
-<div class="container" ng-controller="painController">
-    <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="userInput.subjectId">
-        <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
-        <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
+    <div class="container" ng-controller="painController">
+        <div class="jumbotron">
+        <div>Search : <input type="text" placeholder="User id" size="20" maxlength="4" ng-model="userInput.subjectId">
+            <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
+            <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
+        </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>UserID</th>
+                <th>PainLevel</th>
+                <th>Note</th>
+                <th>Joint</th>
+                <th>TimeOfDay</th>
+                <th>Time</th>
+                <th>Creation Date</th>
+            </tr>
+            </thead>
+
+
+            <tr ng-repeat="pain in painList | filter:search track by $index">
+                <td>{{pain.subjectId}}</td>
+                <td>{{pain.painLevel}}</td>
+                <td>{{pain.note}}</td>
+                <td>{{pain.joint}}</td>
+                <td>{{pain.timeOfDay.slice(0,-5).replace("T"," ")}}</td>
+                <td>{{pain.time.slice(0,-5).replace("T"," ")}}</td>
+                <td>{{pain.creation_date.slice(0,-5).replace("T"," ")}}</td>
+            </tr>
+
+        </table>
     </div>
-    <br/><br/>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>UserID</th>
-            <th>PainLevel</th>
-            <th>Note</th>
-            <th>Joint</th>
-            <th>TimeOfDay</th>
-            <th>Time</th>
-            <th>Creation Date</th>
-        </tr>
-        </thead>
-
-
-        <tr ng-repeat="pain in painList | filter:search track by $index">
-            <td>{{pain.subjectId}}</td>
-            <td>{{pain.painLevel}}</td>
-            <td>{{pain.note}}</td>
-            <td>{{pain.joint}}</td>
-            <td>{{pain.timeOfDay.slice(0,-5).replace("T"," ")}}</td>
-            <td>{{pain.time.slice(0,-5).replace("T"," ")}}</td>
-            <td>{{pain.creation_date.slice(0,-5).replace("T"," ")}}</td>
-        </tr>
-
-    </table>
-</div>
 
 
