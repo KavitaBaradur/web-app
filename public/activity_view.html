@@ -1,9 +1,9 @@
 
 <div class="container" ng-controller='activityController'>
-    <br/>
 
 
-    <div>Search : <input type="text" placeholder="patient id" size="20" maxlength="4" ng-model="searchText.patient_id"/>
+    <div>Search : <input type="text" placeholder="user id" size="20" maxlength="4" ng-model="userInput.patient_id"/>
+        <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
         <button ng-click="createCsv()" class="btn btn-primary">Export to CSV </button>
          </div>
     <br/><br/>
@@ -18,7 +18,7 @@
         </tr>
         </thead>
 
-        <tr ng-repeat="activity in activityList | filter:searchText track by $index">
+        <tr ng-repeat="activity in activityList | filter:search track by $index">
             <td>{{activity.patient_id}}</td>
             <td>{{activity.duration+" minutes"}}</td>
             <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>

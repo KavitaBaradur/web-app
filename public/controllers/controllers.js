@@ -74,6 +74,8 @@ myapp.controller("HomeController", function ($scope, $http) {
 });
 
 myapp.controller("painController",function ($scope,$http) {
+    $scope.userInput={};
+    $scope.search={};
     $http({
         method : "GET",
         url    : "http://tjrapp.wpi.edu:5353/api/v1/pain-entries",
@@ -139,9 +141,16 @@ myapp.controller("painController",function ($scope,$http) {
     $scope.createCsv=function(){
         JSONToCSVConvertor($scope.painList,'ALL_data_Angular_King',true);
     }
+    $scope.applySearch=function () {
+        for(prop in $scope.userInput){
+            $scope.search[prop]=$scope.userInput[prop];
+        }
+    }
 });
 
     myapp.controller("activityController",function ($scope,$http) {
+        $scope.search={};
+        $scope.userInput={};
         $http({
             method : "GET",
             url    : "http://tjrapp.wpi.edu:5353/api/v1/activity-entries",
@@ -205,11 +214,99 @@ myapp.controller("painController",function ($scope,$http) {
         $scope.createCsv=function(){
             JSONToCSVConvertor($scope.activityList,'Data_Activity',true);
         }
+        $scope.applySearch=function () {
+            for(prop in $scope.userInput){
+                $scope.search[prop]=$scope.userInput[prop];
+            }
+        }
     });
 
-    myapp.controller("assessmentController",function ($scope) {   //assessmentController
+    myapp.controller("assessmentController",function ($scope,$http) {   //assessmentController
         console.log("hello");                                //assessmentController
         $scope.message="Hello Assessment"
+        $http({
+            method : "GET",
+            url    : "http://tjrapp.wpi.edu:5353/api/v1/assessment-entries",
+            params : {}
+        }).then(function mySuccess(response){
+            $scope.assessmentList=response.data;
+        },function myError(response){
+            $scope.assessmentList=response.statusText;
+        });
+        function JSONToCSVConvertor(JSONData,ReportTitle,ShowLabel){
+            var arrData=typeof JSONData !="object" ? JSON.parse(JSONData) : JSONData;
+
+            var csv='';
+
+            csv +="" + '\r\n\n';
+            if(ShowLabel){
+                var row="";
+
+                for(var index in arrData[0]){
+                    row +=index+',';
+
+                }
+
+                row=row.slice(0,-1);
+
+                csv +=row+'\r\n';
+            }
+            for(var i=0;i<arrData.length;i++){
+                var row="";
+
+                for(var index in arrData[i]){
+                    row +='"' + arrData[i][index]+'",';
+                }
+                row.slice(0,row.length-1);
+
+                csv +=row+'\r\n';
+
+            }
+            if(csv ==''){
+                alert('Invalid data');
+                return;
+            }
+
+            var fileName="Assessment_";
+
+            fileName+=ReportTitle.replace(/ /g,"_");
+
+            var uri='data:text/csv:charset=utf-8,'+escape(csv);
+
+            var link=document.createElement("a");
+            link.href=uri;
+
+            link.style="visibility:hidden";
+            link.download=fileName+".csv";
+
+
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+        }
+        $scope.createCsv=function(){
+            JSONToCSVConvertor($scope.assessmentList,'Data_',true);
+        }
+        $scope.downloadFile=function () {
+            var fileName="PRODataDictionaryv2";
+
+            //fileName+=ReportTitle.replace(/ /g,"_");
+
+            var uri='data:text/csv:charset=utf-8,';
+
+            var link=document.createElement("a");
+            link.href=uri;
+
+            link.style="visibility:hidden";
+            link.download='./'+fileName+".csv";
+
+
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+        }
     })
     .controller("userController",function ($scope,$http) {
         console.log("www");
@@ -223,11 +320,48 @@ myapp.controller("painController",function ($scope,$http) {
         },function myError(response){
             $scope.userList=response.statusText;
         });
-        function addNewUser(){
-
+        function duplicate(data){
+            var returnValue=true;
+            $scope.userList.forEach(function (t) {
+                if(data == t.user_name){
+                    console.log("present");
+                    data="";
+                    returnValue=false;
+                }
+            })
+            return returnValue;
         }
-        $scope.addUser=function () {
-            addNewUser();
+        $scope.createUser=function(){
+            console.log($scope.user_name);
+            console.log((''+$scope.user_name).length);
+            var inputLength=(''+$scope.user_name).length;
+            if(inputLength > 4){
+                $scope.user_name='';
+                return;
+            }
+            var duplicateI=duplicate($scope.user_name);
+            console.log(duplicateI);
+            console.log($scope.user_name);
+            if(duplicateI == true){
+                $http({
+                    method : "POST",
+                    url    : "http://tjrapp.wpi.edu:5353/api/v1/authentication",
+                    data   : $.param({user_name : $scope.user_name}),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    //params : {user_name: $scope.user_name}
+                }).then(function mySuccess(response){
+                    console.log(response.data);
+                    $scope.password=response.data.password;
+                    $scope.userList.push({'user_name' : $scope.user_name,'password' : $scope.password});
+                    $scope.user_name='';
+                    $scope.password='';
+                },function myError(response){
+                    $scope.password=response.statusText;
+                    console.log(response);
+                });
+            }else{
+                $scope.user_name="";
+            }
         }
     });
 

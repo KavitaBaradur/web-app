@@ -1,13 +1,13 @@
 <div class="container" ng-controller="painController">
-    <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="searchText.subjectId">
-
+    <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="userInput.subjectId">
+        <button ng-click="applySearch()" class="btn btn-primary">Filter</button>
         <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
     </div>
     <br/><br/>
     <table class="table">
         <thead>
         <tr>
-            <th>SubjectID</th>
+            <th>UserID</th>
             <th>PainLevel</th>
             <th>Note</th>
             <th>Joint</th>
@@ -18,7 +18,7 @@
         </thead>
 
 
-        <tr ng-repeat="pain in painList | filter:searchText track by $index">
+        <tr ng-repeat="pain in painList | filter:search track by $index">
             <td>{{pain.subjectId}}</td>
             <td>{{pain.painLevel}}</td>
             <td>{{pain.note}}</td>

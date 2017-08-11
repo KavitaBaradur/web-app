@@ -1,9 +1,21 @@
 
 <div class="container" ng-controller='assessmentController'>
-    <div>Search : <input type="text" placeholder="Subject id" size="20" maxlength="4" ng-model="searchText.subjectId">
-
-        <button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button>
-    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Please click on Export to CSV </th>
+            <th>Download Sample File which indicates the data pattern</th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th><button ng-click="createCsv()" class="btn btn-primary">Export to CSV</button></th>
+            <th>
+                <a class="btn btn-primary" href="./PRODataDictionaryv2.xlsx" target="_self">Download</a>
+            </th>
+        </tr>
+        </thead>
+    </table>
 
 </div>
 

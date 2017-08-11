@@ -42,7 +42,7 @@ app.get('/', function (req, res, next) {
     res.sendFile( __dirname + '/public/index.html');
 });
 
-app.get('/UserEntry', function (req, res, next) {
+/*app.get('/UserEntry', function (req, res, next) {
     res.sendFile( __dirname + '/public/admin_page.html');
 });
 
@@ -56,7 +56,7 @@ app.get('/ActivityEntry', function (req, res, next) {
 
 app.get('/AssessmentEntry', function (req, res, next) {
     res.sendFile( __dirname + '/public/assessment_view.html');
-});
+});*/
 
 
 //app.use(express.static(__dirname + "/public"));

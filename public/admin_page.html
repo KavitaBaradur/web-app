@@ -1,35 +1,54 @@
 
-<div class="container" ng-controller='HomeController'>
-<br/>
-<div class="jumbotron" >
-    <form class="form-inline" style="padding-left: 25%">
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-            <div class="input-group-addon">ID</div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="UserID" ng-model="searchText.userID">
-        </div>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="padding-left: 5%">
-            <button  id="addUserBtn" class="btn btn-primary">Add User</button>
-        </div>
-    </form>
+<div class="container" ng-controller="userController">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-</div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New User</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">User ID:</label>
+                            <div class="col-sm-10">
+                                <input type="number" min="1" maxlength="4"  class="form-control" id="user" placeholder="Enter User ID" ng-model="user_name" name="user_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-default" ng-click="createUser()" data-dismiss="modal">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
 
-<div class="table" style="padding-left: 25%; padding-right: 25%">
-    <table class="table table-striped table-bordered table-hover">
+        </div>
+    </div>
+
+    <div>Search : <input type="text" placeholder="user id" size="20" maxlength="4" ng-model="searchText.user_name">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add User</button>
+    </div>
+    <br/><br/>
+    <table class="table">
         <thead>
         <tr>
-            <th align="center">UserID</th>
-            <th align="center">Password</th>
+            <th>User ID</th>
+            <th>Password</th>
         </tr>
         </thead>
-        <tbody>
-        <tr ng-repeat="user in users | filter: searchText track by $index">
-            <td>{{user.userID}}</td>
+
+        <tr ng-repeat="user in userList | filter:searchText track by $index">
+            <td>{{user.user_name}}</td>
             <td>{{user.password}}</td>
         </tr>
-        </tbody>
     </table>
-</div>
-</div>
 
-
+</div>

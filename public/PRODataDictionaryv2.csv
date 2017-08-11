@@ -1,0 +1,146 @@
+Category,Variable Name,Data Type,Description,Variable Values
+,patient_id,int,Patient ID,int
+,survey_date,date,date survey was completed,
+Profile,gender,smallint,Gender,"0=Male, 1=Female, -1=none selected"
+,age,int,Age,number
+,height_ft,int,Height feet,int
+,height_in,int,Height inches,int
+,weight_lbs,int,Weight lbs,int
+,use_cane,smallint,"Do you use a cane, walker, wheelchair, or scooter now?","1=Yes, 0=No, -1=none selected"
+,surg_plan,smallint,Do you plan to have a surgery in the next 6 months?,"1=Yes, 0=No, -1=none selected"
+,surg_plan_text,nvarchar,"If YES, please explain.",text
+Smoking status,cig_smoker,smallint,Are you a cigarette smoker?,"1=Yes, 0=No, -1=none selected"
+,smoke_yr,int,"If YES, how many years have you smoked?",number
+,cig_packs_day,"numeric(9,4)","On average, how many packs of cigarettes do you smoke per day?",number
+,past_smoker,smallint," If NO, did you smoke in the past?","1=Yes, 0=No, -1=none selected"
+Quality of life,KOOS_knee_problem_awareness,smallint,How often are you aware of your knee problem?,"1=Never, 2=Monthly, 3=Weekly, 4=Daily, 5=Constantly, -1=none selected"
+,KOOS_modified_lifestyle,smallint,Have you modified your life style to avoid potentially damaging activities to your knee?,"1=Not at all, 2=Mildly, 3=Moderately, 4=Severely, 5=Totally, -1=none selected"
+,KOOS_lack_confidence,smallint,How much are you troubled with lack of confidence in your knee?,"1=Not at all, 2=Mildly, 3=Moderately, 4=Severely, 5=Extremely, -1=none selected"
+,KOOS_difficulty_general,smallint,"In general, how much difficulty do you have with your knee?","1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+General health,health_general_vr,smallint,"In general, would you say your health is?","1=Excellent, 2=Very Good, 3=Good, 4=Fair, 5=Poor, -1 = None Selected"
+Comorbidity,,,The following questions are to determine if you have additional concerns that affect your health and function.,
+,MCCOM_obs_plum_dis,smallint,Have you been diagnosed with: Chronic Obstructive Pulmonary Disease (chronic bronchitis and/or emphysema),"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_conn_tiss_dis,smallint,"Have you been diagnosed with: Connective Tissue Disease: such as lupus, rheumatoid arthritis, scleroderma, polymyositis, dermatomysitis","Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_diabetes,smallint,Have you been diagnosed with: Diabetes,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_cancer,smallint,Have you been diagnosed with: Cancer - a malignant growth or tumor,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_liver,smallint,Have you been diagnosed with: Liver Disease,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_peri_vasc_dis,smallint,"Have you been diagnosed with: Peripheral Vascular Disease - narrowing of vessels that carry blood to the legs, arms, stomach or kidneys","Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_kidney,smallint,Have you been diagnosed with: Kidney Disease,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_ulcer,smallint,Have you been diagnosed with: Ulcer Disease,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_aids,smallint,Have you been diagnosed with: AIDS,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_paralysis,smallint,Have you been diagnosed with: Paralysis (from stroke or other condition),"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_ami,smallint,"Have you been diagnosed with: Heart attack (coronary, myocardial infarction or MI), Congestive heart failure (fluid in the lungs), or Heart bypass operation (coronary bypass surgery or CABG) or angioplasty or stent","Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_carotid,smallint,"Have you been diagnosed with: Procedure to unblock blood vessels to your neck (carotid endarterectomy, carotid angioplasty, or carotid stent)","Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_stroke,smallint,Have you been diagnosed with: Stroke,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_other,smallint,Have you been diagnosed with: Other,"Yes=1, No=0, Don't Know=2, -1=none selected"
+,MCCOM_other_explain,nvarchar,"If Other, please explain.",text
+Low back pain,OSWE_pain_intensity,smallint,My BACK PAIN at the moment is,"1=none, 2=mild, 3=moderate, 4=fairly severe, 5=very severe, 6=worst imaginable, -1=none selected"
+Pain on knee,KOOS_frequency_pain,smallint,How often do you experience knee pain?,"1=Never, 2=Monthly, 3=Weekly, 4=Daily, 5=Always, -1=none selected"
+,,,What amount of pain have you experienced the last week in your arthritis knee during the following activities?,
+,KOOS_pain_twisting_pivoting,smallint,Pain twisting/pivoting on your knee,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_straightening,smallint,Pain straightening knee fully,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_bending,smallint,Pain bending knee fully,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_walking_flat,smallint,Pain walking on flat surface,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_on_stairs,smallint,Pain going up or down stairs,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_in_bed,smallint,Pain at night while in bed,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_sitting_lying,smallint,Pain sitting or lying,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_standing,smallint,Pain standing upright,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+Pain on other joints,KOOS_pain_nsk,smallint,What amount of pain have you experienced the last week in your other knee?,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_rh,smallint,What amount of pain have you experienced the last week in your right hip?,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_pain_lh,smallint,What amount of pain have you experienced the last week in your left hip?,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+Physical function,,,"The following questions concern your physical function. By this we mean your ability to move around and to look after yourself. For each of the following activities please indicate the degree of difficulty you have experienced in the last week due to your arthritis knee. It is important you answer all questions even if they may not seem relevant to you. If you were not able to do an activity listed, tell us how difficult it would be if you attempted to do the activity.",
+,KOOS_difficulty_down_stairs,smallint,Difficult descending stairs,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_up_stairs,smallint,Difficulty ascending stairs,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_diff_rising_from_seat,smallint,Difficulty rising from sitting,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_standing,smallint,Difficulty standing,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_bending,smallint,Difficulty bending to floor/pick up an object,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_walking_flat,smallint,Difficulty walking on flat surface,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_car,smallint,Difficulty getting in/out of car,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_shopping,smallint,Difficulty going shopping,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_socks,smallint,Difficulty putting on socks/stockings,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_rising_bed,smallint,Difficulty rising from bed,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_diff_taking_socks_off,smallint,Difficulty taking off socks/stockings,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_lying_bed,smallint,"Difficulty lying in bed (turning over, maintaining knee position)","1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_bath,smallint,Difficulty getting in/out of bath,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_sitting,smallint,Difficulty sitting,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_toilet,smallint,Difficulty getting on/off toilet,"1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_heavy_domestic,smallint,"Difficulty with heavy domestic duties (moving heavy boxes, scrubbing floors, etc)","1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,KOOS_difficulty_light_domestic,smallint,"Difficulty with light domestic duties (cooking, dusting, etc)","1=None, 2=Mild, 3=Moderate, 4=Severe, 5=Extreme, -1=none selected"
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
