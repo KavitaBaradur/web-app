@@ -19,6 +19,7 @@
                 <th>Duration</th>
                 <th>Recorded Time</th>
                 <th>ActivityID</th>
+                <th>ActivityTitle</th>
                 <th>Creation Date</th>
             </tr>
             </thead>
@@ -28,6 +29,7 @@
                 <td>{{activity.duration+" minutes"}}</td>
                 <td>{{activity.rec_time.slice(0,-5).replace("T"," ")}}</td>
                 <td>{{activity.act_id}}</td>
+                <td>{{activity.title}}</td>
                 <td>{{activity.creation_date.slice(0,-5).replace("T"," ")}}</td>
             </tr>
 
